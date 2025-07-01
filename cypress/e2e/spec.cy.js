@@ -10,7 +10,7 @@ cy.origin("https://secure6.store.apple.com", () => {
   const getIframeBody = () => {
   return cy
     .get('#aid-auth-widget-iFrame' , {timeout: 1000})
-    .its('0.contentDocument.body').should('exist')
+    .its('0.contentDocument.body').should('not.be.empty')
     .then(cy.wrap)
 }
 
