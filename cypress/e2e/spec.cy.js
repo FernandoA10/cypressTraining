@@ -9,6 +9,10 @@ describe('Work with iFrames', () => {
 cy.origin("https://secure6.store.apple.com", () => { 
   const getIframeBody = () => {
   return cy
+    .get('#aid-auth-widget-iFrame')
+    .its('0.contentDocument.body').should('not.be.empty')
+    .then(cy.wrap)
+}
 
   cy.wait(3000)
   getIframeBody().find('.form-checkbox-indicator').click()
